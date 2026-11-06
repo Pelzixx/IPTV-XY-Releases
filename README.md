@@ -19,3 +19,31 @@ Leere Felder werden nicht angezeigt; sind alle leer, bleibt die Zeile bei der Mi
 | `qrLabel` | Text neben dem QR-Code, z. B. „Support im Element-Chat“ |
 
 Ändern: Datei auf GitHub öffnen, Stift-Symbol, Text ändern, „Commit changes“.
+
+## sports.json – Top-Spiele im Sport-Guide
+
+Diese Spiele erscheinen in der App oben auf der Sport-Seite (mit „TOP“ markiert), zusätzlich zu den Sportsendungen,
+die automatisch aus dem TV-Programm erkannt werden. Sender werden über den Namen gefunden (z. B. „Sky Sport Bundesliga 1“
+passt auch zu „DE| Sky Sport Bundesliga 1 HD“).
+
+```json
+{
+  "events": [
+    {
+      "sport": "football",
+      "league": "Bundesliga",
+      "title": "FC Bayern – Borussia Dortmund",
+      "home": "FC Bayern",
+      "away": "Borussia Dortmund",
+      "start": "2026-11-08T18:30:00+01:00",
+      "end": "2026-11-08T20:30:00+01:00",
+      "channels": ["Sky Sport Bundesliga 1", "Sky Sport Top Event"],
+      "text": "Topspiel des Spieltags"
+    }
+  ]
+}
+```
+
+- `sport`: football, basketball, motorsport, tennis, eishockey, nfl, boxen/ufc – alles andere landet unter „Weitere Sportarten“.
+- `end` ist optional (sonst 2 Stunden nach Beginn). Vergangene Spiele werden automatisch ausgeblendet.
+- `home`/`away` sind optional, damit werden Live-Spielstände zugeordnet.
